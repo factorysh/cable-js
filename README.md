@@ -1,4 +1,4 @@
 Cables
 ======
 
-Drag boxes and draw cable between.
+Drag boxes and draw cable between them.
