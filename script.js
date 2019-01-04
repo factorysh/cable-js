@@ -80,7 +80,8 @@ function drawPaths(box1, box2) {
     const pendouillage = 20
     const x3 = (x1+x2)/2
     const y3 = Math.max(y1, y2)+pendouillage
-    const delta3 = Math.max(delta, Math.abs(y2-y1)/2)
+    let delta3 = Math.max(delta, Math.abs(y2-y1)/2)
+    if (x2 < x1) { delta3 = -delta3 }
     const d = `M${x1} ${y1}
     C ${x1+delta} ${y1} ${x3-delta3} ${y3} ${x3} ${y3}
     C ${x3+delta3} ${y3} ${x2-delta} ${y2} ${x2} ${y2}
