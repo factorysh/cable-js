@@ -43,6 +43,8 @@ function drag(e) {
 
         dragged.style.transform = `translate3d(${self.currentX}px, ${self.currentY}px, 0)`
         console.log(`translate3d(${self.currentX}px, ${self.currentY}px, 0)`)
+        drawPaths(document.querySelector("#box1"),
+            document.querySelector("#box2"))
     }
 }
 
@@ -59,7 +61,21 @@ class Box {
         this.active = false
         this.xOffset = 0
         this.yOffset = 0
+        this.currentX = 0
+        this.currentY = 0
     }
+}
+
+function drawPaths(box1, box2) {
+    console.log(box1.offsetTop, box1.offsetLeft)
+    let path = document.getElementById("1_2")
+    console.log(boxes[box1.id])
+    const d = `M${box1.offsetWidth + box1.offsetLeft + boxes[box1.id].currentX}
+    ${(box1.offsetHeight/2) + boxes[box1.id].currentY + box1.offsetTop}
+    L${boxes[box2.id].currentX + box2.offsetLeft}
+    ${(box2.offsetHeight/2) + boxes[box2.id].currentY + box2.offsetTop}`.replace(/\s+/gm, " ")
+    path.setAttribute("d", d)
+    console.log(d, path)
 }
 
 var boxes = {}
@@ -69,3 +85,8 @@ document.querySelectorAll(".box").forEach(box => {
     console.log(box)
     boxes[box.id] = new Box(box)
 })
+drawPaths(document.querySelector("#box1"),
+            document.querySelector("#box2"))
+
+let paths = document.querySelector("#paths")
+let zone = document.querySelector("#zone")
