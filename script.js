@@ -69,12 +69,24 @@ class Box {
 function drawPaths(box1, box2) {
     console.log(box1.offsetTop, box1.offsetLeft)
     let path = document.getElementById("1_2")
+    let path_back = document.getElementById("1_2_back")
     console.log(boxes[box1.id])
-    const d = `M${box1.offsetWidth + box1.offsetLeft + boxes[box1.id].currentX}
-    ${(box1.offsetHeight/2) + boxes[box1.id].currentY + box1.offsetTop}
-    L${boxes[box2.id].currentX + box2.offsetLeft}
-    ${(box2.offsetHeight/2) + boxes[box2.id].currentY + box2.offsetTop}`.replace(/\s+/gm, " ")
+    const x1 = box1.offsetWidth + box1.offsetLeft + boxes[box1.id].currentX
+    const y1 = (box1.offsetHeight/2) + boxes[box1.id].currentY + box1.offsetTop
+    const x2 = boxes[box2.id].currentX + box2.offsetLeft
+    const y2 = (box2.offsetHeight/2) + boxes[box2.id].currentY + box2.offsetTop
+
+    const delta = 40
+    const pendouillage = 20
+    const x3 = (x1+x2)/2
+    const y3 = Math.max(y1, y2)+pendouillage
+    const delta3 = Math.max(delta, Math.abs(y2-y1)/2)
+    const d = `M${x1} ${y1}
+    C ${x1+delta} ${y1} ${x3-delta3} ${y3} ${x3} ${y3}
+    C ${x3+delta3} ${y3} ${x2-delta} ${y2} ${x2} ${y2}
+    `.replace(/\s+/gm, " ")
     path.setAttribute("d", d)
+    path_back.setAttribute("d", d)
     console.log(d, path)
 }
 

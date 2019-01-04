@@ -10,6 +10,7 @@
 
 .box:hover {
     cursor: move;
+    opacity: 0.8;
 }
 
 .box:active {
