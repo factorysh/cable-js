@@ -12,6 +12,11 @@ function dragStart(e) {
     }
     self.active = true
     dragged = this
+    console.log(document.querySelector(`#paths svg circle.${this.id}_start`))
+    const p = `#paths svg circle.${this.id}`
+    document.querySelectorAll(p).forEach(c => {
+        c.style.visibility = 'visible'
+    })
 }
 
 function dragEnd(e) {
@@ -22,6 +27,9 @@ function dragEnd(e) {
 
     self.active = false
     dragged = null
+    document.querySelectorAll("#paths svg circle").forEach(c => {
+        c.style.visibility = 'hidden'
+    })
 }
 
 function drag(e) {
@@ -76,7 +84,8 @@ function drawPathsHorizontal(box1, box2) {
     const x2 = boxes[box2.id].currentX + box2.offsetLeft
     const y2 = (box2.offsetHeight/2) + boxes[box2.id].currentY + box2.offsetTop
 
-    const x3 = (x1+x2)/2
+    const ratio = 0.5
+    const x3 = x1 + ((x2-x1) * ratio)
     const y3 = Math.max(y1, y2)+pendouillage
     let delta3 = Math.max(delta, Math.abs(y2-y1)/2)
     if (x2 < x1) { delta3 = -delta3 }
@@ -86,6 +95,18 @@ function drawPathsHorizontal(box1, box2) {
     `.replace(/\s+/gm, " ")
     path.setAttribute("d", d)
     path_back.setAttribute("d", d)
+    circleStart = document.getElementById("1_2_start")
+    circleStartHalo = document.getElementById("1_2_start_halo")
+    circleEnd = document.getElementById("1_2_end")
+    circleEndHalo = document.getElementById("1_2_end_halo")
+    circleStart.setAttribute("cx", x1)
+    circleStart.setAttribute("cy", y1)
+    circleStartHalo.setAttribute("cx", x1)
+    circleStartHalo.setAttribute("cy", y1)
+    circleEnd.setAttribute("cx", x2)
+    circleEnd.setAttribute("cy", y2)
+    circleEndHalo.setAttribute("cx", x2)
+    circleEndHalo.setAttribute("cy", y2)
 }
 
 function drawPathsVertical(box1, box2) {
@@ -97,7 +118,7 @@ function drawPathsVertical(box1, box2) {
     const y2 = boxes[box2.id].currentY + box2.offsetTop
 
     const x3 = (x1+x2)/2
-    const y3 = Math.max(y1, y2)+pendouillage
+    const y3 = (y1+y2)/2+pendouillage
     let delta3 = Math.max(delta, Math.abs(y2-y1)/2)
     if (x2 < x1) { delta3 = -delta3 }
     const d = `M${x1} ${y1}
@@ -107,6 +128,18 @@ function drawPathsVertical(box1, box2) {
     path.setAttribute("d", d)
     path_back.setAttribute("d", d)
 
+    circleStart = document.getElementById("2_3_start")
+    circleEnd = document.getElementById("2_3_end")
+    circleStartHalo = document.getElementById("2_3_start_halo")
+    circleEndHalo = document.getElementById("2_3_end_halo")
+    circleStart.setAttribute("cx", x1)
+    circleStart.setAttribute("cy", y1)
+    circleStartHalo.setAttribute("cx", x1)
+    circleStartHalo.setAttribute("cy", y1)
+    circleEnd.setAttribute("cx", x2)
+    circleEnd.setAttribute("cy", y2)
+    circleEndHalo.setAttribute("cx", x2)
+    circleEndHalo.setAttribute("cy", y2)
 }
 
 var boxes = {}

@@ -18,15 +18,51 @@
     Box 1
     </div>
     <div id="paths">
-        <svg  xmlns="http://www.w3.org/2000/svg">
+        <svg xmlns="http://www.w3.org/2000/svg">
+            <filter id="dropshadow" height="130%">
+                <feGaussianBlur in="SourceAlpha" stdDeviation="3"/> <!-- stdDeviation is how much to blur -->
+                <feOffset dx="2" dy="2" result="offsetblur"/> <!-- how much to offset -->
+                <feComponentTransfer>
+                    <feFuncA type="linear" slope="0.5"/> <!-- slope is the opacity of the shadow -->
+                </feComponentTransfer>
+                <feMerge> 
+                    <feMergeNode/> <!-- this contains the offset blurred image -->
+                    <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+                </feMerge>
+            </filter>
+            <filter id="halo" height="600%" width="600%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="3"/> <!-- stdDeviation is how much to blur -->
+            </filter>
             <path id="1_2_back" d="M210 60 L 10 120"
-            stroke="black" fill="transparent" stroke-width="5"/>
+            style="filter:url(#dropshadow)"
+            stroke="black" fill="transparent" stroke-width="7"/>
             <path id="1_2" d="M210 60 L 10 120"
             stroke="red" fill="transparent" stroke-width="3"/>
             <path id="2_3_back" d="M210 60 L 10 120"
-            stroke="black" fill="transparent" stroke-width="5"/>
+            style="filter:url(#dropshadow)"
+            stroke="black" fill="transparent" stroke-width="7"/>
             <path id="2_3" d="M210 60 L 10 120"
             stroke="yellow" fill="transparent" stroke-width="3"/>
+            <circle class="start box1 box2" id="1_2_start_halo"
+            style="filter:url(#halo)" 
+            fill="red" r="15"/>
+            <circle class="start box1 box2" id="1_2_start"
+            fill="red" stroke="black" stroke-width="2" r="7"/>
+            <circle class="end box1 box2" id="1_2_end_halo"
+            style="filter:url(#halo)" 
+            fill="red" r="15"/>
+            <circle class="end box1 box2" id="1_2_end"
+            fill="red" stroke="black" stroke-width="2" r="7"/>
+            <circle class="start box2 box3" id="2_3_start_halo"
+            style="filter:url(#halo)" 
+            fill="yellow" r="15"/>
+            <circle class="start box2 box3" id="2_3_start"
+            fill="yellow" stroke="black" stroke-width="2" r="7"/>
+            <circle class="end box2 box3" id="2_3_end_halo"
+            style="filter:url(#halo)" 
+            fill="yellow" r="15"/>
+            <circle class="end box2 box3" id="2_3_end"
+            fill="yellow" stroke="black" stroke-width="2" r="7"/>
         </svg>
     </div>
     <div id="box2" class="box">
