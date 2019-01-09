@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from lxml import etree
+from lxml import etree, objectify
 
 
 def layers(dessin: etree.Element) -> (str, etree.Element):
@@ -12,10 +12,10 @@ def layers(dessin: etree.Element) -> (str, etree.Element):
 def main(path='dessin.svg'):
     dessin = etree.fromstring(open(path, 'rb').read())
     for label, layer in layers(dessin):
-        # print(label, etree.tostring(layer))
         layer.attrib['id'] = label
         visit(layer, clean)
-        print(etree.tostring(layer))
+        #objectify.deannotate(layer, cleanup_namespaces=True)
+        print(etree.tostring(layer, pretty_print=True), "\n")
 
 
 def clean(element):
