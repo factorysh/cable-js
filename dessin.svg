@@ -7,7 +7,6 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="210mm"
@@ -26,8 +25,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="80.049469"
+     inkscape:zoom="2"
+     inkscape:cx="57.47804"
      inkscape:cy="810.66301"
      inkscape:document-units="mm"
      inkscape:current-layer="layer2"
@@ -57,9 +56,10 @@
   <g
      inkscape:label="route"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     style="display:inline">
     <path
-       style="fill:none;stroke:#000000;stroke-width:1.74983239;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:1.74977779;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 9.2834997,52.180447 H 47.221168 v 2.869834 l 3.049665,2.501802 -3.049665,3.237865 v 2.869833 H 9.2834997 V 60.789948 L 11.90625,57.552083 9.2834997,55.050281 Z"
        id="rule"
        inkscape:connector-curvature="0"
@@ -80,49 +80,30 @@
   <g
      inkscape:groupmode="layer"
      id="layer3"
-     inkscape:label="private">
-    <image
-       y="47.724701"
-       x="71.815475"
-       id="image4617"
-       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAAyCAIAAAAx7rVNAAAAA3NCSVQICAjb4U/gAAAA80lEQVR4
-nO3csW3EMBAFUfLgRpaJilCgYlTSMlE5KkPV0JkD3wGGBePoAeaFhIIFBkp/GWP03iOiCCUieu9j
-jJKZs4/RfZlZWmuzz9B9rbVSa519hu4zn/QPvPgNl2XZtu39p+hH53le1/Xt8eP5u3Vdj+N4y0n6
-nX3fnxM+ppyiP2RCPBPimRDPhHgmxDMhngnxTIhnQjwT4pkQz4R4JsQzIZ4J8UyIZ0I8E+KZEM+E
-eCbEMyGeCfFMiGdCPBPimRDPhHgmxDMhngnxTIhnQjwT4jmXQPJyLkHSdC5AodVaH85YokWEY5Zs
-mVmclIX6mpT9BCRdL3Fhci4jAAAAAElFTkSuQmCC
-"
-       style="image-rendering:optimizeSpeed"
-       preserveAspectRatio="none"
-       height="13.229167"
-       width="39.6875" />
+     inkscape:label="private"
+     style="display:inline">
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1.76388884;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4640"
+       width="39.742435"
+       height="12.225768"
+       x="67.705864"
+       y="68.107948" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="public">
-    <image
-       y="75.897491"
-       x="2.3754396"
-       id="image4637"
-       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAAyCAIAAAAx7rVNAAAAA3NCSVQICAjb4U/gAAACxElEQVR4
-nO3csUtqURwH8HMPQUQ2BIlg03VxamyIhlYXy/ASIkKIDdqUS0stLdHmcC+IIDa4aiQN4uDgoP+B
-YIMEDUKUDoUgEZ63xIvuufDeubzOfQe+n/Gc3/CFL1c4BzmEMWZZlq7rBJSi67plWYwxYpqm12HA
-PdM0SSgU8joGuBcKhYimaV7HAPdQH8B/wOEzDIfDOzs78qPAH3U6nfv7e9viAj+3vb1dKpWkRAIx
-mUyGr5B6EgX+IVSoPFSoPFSoPFSoPIcKe73ebDaTHwXcocvLy7alwWBwfn7uSRpwgUajUX61UCh0
-Oh35acAFenl5ubKyYludz+fpdPrt7c2TTCCE6rp+dXXFbzw8PJyensoPBKIoISSXy0UiEX6vVCo1
-m03pkUAMJYRomlYul1dXV217jLGjo6PJZOJFMPhbn4eK9fX1QqHAb49Go5OTE7mRQMzXufDw8DAe
-j/MT1Wq1VqtJjARivh3ti8ViIBDgh3K53NPTk6xIIOZbhX6/37Isfujl5eX4+FhWJBBjv2AzDCOZ
-TPJzNzc3d3d3UiKBGIc7UtM0/X4/v16v138+DwhzqLDb7Y7HY36dMfbzeUCYvcJ+v59KpebzOT9q
-GIaUSCDmW4WTyWRvb+/19ZWfS6fTjhfi4LmvCj8+Pg4ODobDIT+0tbVVLBYlpgIBXxXm8/l2u81P
-BIPBWq22uLgoMRUI+Kzw+vra8US4tLR0e3sbDAblpgIBlBDS7Xaz2Sy/p2lapVLZ3NyUngoE0MfH
-x/39/ff3d37v7OwskUjIzwRCaD6ff35+5jdisdjFxYX8QCCKtlotfnVjY6NarVKKvygqgE6nU9vS
-2tpao9Hw+XyeBAJRDt/Z7u4uXk9QCH4qlYcKlYcKlYcKlYcKlYfnElTi+FwCAHgOL0ApTdM0iosY
-pem6jscs1WaaJsGTsor6/aTsL3PZy3HHlmEYAAAAAElFTkSuQmCC
-"
-       style="image-rendering:optimizeSpeed"
-       preserveAspectRatio="none"
-       height="13.229167"
-       width="39.6875" />
+     inkscape:label="public"
+     style="display:inline">
+    <path
+       inkscape:label="#rect10"
+       sodipodi:nodetypes="cccccccc"
+       inkscape:connector-curvature="0"
+       id="path9137"
+       d="M 14.310583,97.159614 H 52.248251 V 108.63895 H 14.310583 v -2.86984 l 2.62275,-3.23786 -2.62275,-2.5018 z"
+       style="fill:none;stroke:#000000;stroke-width:1.74977779;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+      <title
+         id="title9139">public box</title>
+    </path>
   </g>
 </svg>
