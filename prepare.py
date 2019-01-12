@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 
+import re
 from lxml import etree, objectify
+
+
+p_xmlns = re.compile(r"xmlns\S+\s")
+parser = etree.XMLParser(remove_blank_text=True)
 
 
 def layers(dessin: etree.Element) -> (str, etree.Element):
@@ -9,13 +14,18 @@ def layers(dessin: etree.Element) -> (str, etree.Element):
         yield label, layer
 
 
-def main(path='dessin.svg'):
-    dessin = etree.fromstring(open(path, 'rb').read())
+def elements(src='dessin.svg'):
+    dessin = etree.XML(open(src, 'rb').read(), parser=parser)
     for label, layer in layers(dessin):
         layer.attrib['id'] = label
         visit(layer, clean)
-        #objectify.deannotate(layer, cleanup_namespaces=True)
-        print(etree.tostring(layer, pretty_print=True), "\n")
+        # objectify.deannotate(layer, cleanup_namespaces=True)
+        yield p_xmlns.sub("", etree.tostring(layer).decode('utf8'))
+
+
+def main(path='dessin.svg'):
+    for element in elements(path):
+        print(element, '\n')
 
 
 def clean(element):

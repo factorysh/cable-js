@@ -1,3 +1,40 @@
+var s = Snap("#paths svg")
+
+
+class Box {
+    constructor(name) {
+        this.name = name
+    }
+    draw(s) {
+        s.rect(0, 0, 150, 50)
+
+
+    }
+}
+
+console.log(paper)
+
+Snap.selectAll(".box").forEach(box => {
+    console.log(box)
+    box.drag()
+   /* 
+    .drag((x, y, event) => { // onmove
+    },
+    (dx, dy, x, y, event) => { // onstart
+
+    },
+    (event) => { // onend
+
+    }
+    )
+*/
+})
+
+
+
+
+
+
 
 
 function dragStart(e) {
@@ -58,7 +95,7 @@ function drag(e) {
     }
 }
 
-class Box {
+class Boxx {
     constructor(box) {
         console.log("constructor", box)
         this.box = box
@@ -147,6 +184,7 @@ var dragged
 const delta = 40
 const pendouillage = 20
 
+/*
 document.querySelectorAll(".box").forEach(box => {
     console.log(box)
     boxes[box.id] = new Box(box)
@@ -158,3 +196,4 @@ drawPathsVertical(document.querySelector("#box2"),
 
 let paths = document.querySelector("#paths")
 let zone = document.querySelector("#zone")
+*/
