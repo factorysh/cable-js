@@ -28,18 +28,21 @@
      inkscape:zoom="2"
      inkscape:cx="57.47804"
      inkscape:cy="810.66301"
-     inkscape:document-units="mm"
-     inkscape:current-layer="layer2"
-     showgrid="false"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer3"
+     showgrid="true"
      inkscape:window-width="1680"
      inkscape:window-height="958"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     showguides="false">
+     showguides="false"
+     inkscape:pagecheckerboard="true">
     <inkscape:grid
        type="xygrid"
-       id="grid4583" />
+       id="grid4583"
+       spacingx="13.229167"
+       spacingy="13.229167" />
   </sodipodi:namedview>
   <metadata
      id="metadata5">
@@ -49,7 +52,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -60,7 +63,7 @@
      style="display:inline">
     <path
        style="fill:none;stroke:#000000;stroke-width:1.74977779;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 9.2834997,52.180447 H 47.221168 v 2.869834 l 3.049665,2.501802 -3.049665,3.237865 v 2.869833 H 9.2834997 V 60.789948 L 11.90625,57.552083 9.2834997,55.050281 Z"
+       d="m 13.920666,45.645828 h 37.937668 v 2.869834 l 3.049665,2.501802 -3.049665,3.237865 v 2.869833 H 13.920666 v -2.869833 l 2.62275,-3.237865 -2.62275,-2.501802 z"
        id="rule"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccccccc"
@@ -68,13 +71,13 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="14.174109"
-       y="57.74107"
+       x="18.407444"
+       y="50.332729"
        id="text4596"><tspan
          sodipodi:role="line"
          id="tspan4594"
-         x="14.174109"
-         y="57.74107"
+         x="18.407444"
+         y="50.332729"
          style="font-size:4.23333311px;stroke-width:0.26458332px">Alice</tspan></text>
   </g>
   <g
@@ -87,7 +90,7 @@
        id="rect4640"
        width="39.742435"
        height="12.225768"
-       x="67.705864"
+       x="53.947517"
        y="68.107948" />
   </g>
   <g
@@ -100,7 +103,7 @@
        sodipodi:nodetypes="cccccccc"
        inkscape:connector-curvature="0"
        id="path9137"
-       d="M 14.310583,97.159614 H 52.248251 V 108.63895 H 14.310583 v -2.86984 l 2.62275,-3.23786 -2.62275,-2.5018 z"
+       d="M 14.310583,98.747115 H 52.248251 V 110.22646 H 14.310583 v -2.86984 l 2.62275,-3.23786 -2.62275,-2.5018 z"
        style="fill:none;stroke:#000000;stroke-width:1.74977779;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
       <title
          id="title9139">public box</title>
