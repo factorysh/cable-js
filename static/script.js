@@ -1,42 +1,24 @@
-var s = Snap("#zone svg")
 
-
-class Box {
-    constructor(name) {
-        this.name = name
+class Cables {
+    constructor(svg) {
+        this.snap = Snap("#zone svg")
+        this.boxes = {}
+        this.snap.selectAll(".box").forEach(box => {
+            this.boxes[box.node.id] = box
+            box.node.style.display = "None"
+            console.log(box)
+        })
     }
-    draw(s) {
-        s.rect(0, 0, 150, 50)
-
-
+    newBox(name, type) {
+        let b = this.boxes[type].clone()
+        return b    
     }
 }
 
-var boxes = {}
-
-s.selectAll(".box").forEach(box => {
-    console.log(box.getBBox())
-    box.drag()
-    boxes[box.id] = box
-    //box.node.style.display = 'None'
-   /* 
-    .drag((x, y, event) => { // onmove
-    },
-    (dx, dy, x, y, event) => { // onstart
-
-    },
-    (event) => { // onend
-
-    }
-    )
-*/
-})
-
-
-
-
-
-
+cables = new Cables("#zone svg")
+cables.newBox("/", "route")
+cables.newBox("web", "public")
+cables.newBox("php", "private")
 
 
 function dragStart(e) {
