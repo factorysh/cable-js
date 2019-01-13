@@ -1,4 +1,4 @@
-var s = Snap("#paths svg")
+var s = Snap("#zone svg")
 
 
 class Box {
@@ -12,11 +12,13 @@ class Box {
     }
 }
 
-console.log(paper)
+var boxes = {}
 
-Snap.selectAll(".box").forEach(box => {
-    console.log(box)
+s.selectAll(".box").forEach(box => {
+    console.log(box.getBBox())
     box.drag()
+    boxes[box.id] = box
+    //box.node.style.display = 'None'
    /* 
     .drag((x, y, event) => { // onmove
     },

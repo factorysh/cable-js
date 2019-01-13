@@ -25,12 +25,12 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
-     inkscape:cx="57.47804"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="348.71464"
      inkscape:cy="810.66301"
      inkscape:document-units="px"
-     inkscape:current-layer="layer3"
-     showgrid="true"
+     inkscape:current-layer="layer1"
+     showgrid="false"
      inkscape:window-width="1680"
      inkscape:window-height="958"
      inkscape:window-x="0"
@@ -42,7 +42,8 @@
        type="xygrid"
        id="grid4583"
        spacingx="13.229167"
-       spacingy="13.229167" />
+       spacingy="13.229167"
+       snapvisiblegridlinesonly="false" />
   </sodipodi:namedview>
   <metadata
      id="metadata5">
@@ -60,42 +61,46 @@
      inkscape:label="route"
      inkscape:groupmode="layer"
      id="layer1"
+     class="box"
      style="display:inline">
     <path
-       style="fill:none;stroke:#000000;stroke-width:1.74977779;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 13.920666,45.645828 h 37.937668 v 2.869834 l 3.049665,2.501802 -3.049665,3.237865 v 2.869833 H 13.920666 v -2.869833 l 2.62275,-3.237865 -2.62275,-2.501802 z"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 38.437628,6.7357557 H 237.85788 V 19.05045 l 16.03064,10.735434 -16.03064,13.893948 v 12.31468 H 38.437628 V 43.679832 L 52.224176,29.785884 38.437628,19.05045 Z"
        id="rule"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccccccc"
        inkscape:label="#rect10" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="18.407444"
-       y="50.332729"
+       style="font-style:normal;font-weight:normal;font-size:12px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="55.451"
+       y="18.153479"
        id="text4596"><tspan
          sodipodi:role="line"
          id="tspan4594"
-         x="18.407444"
-         y="50.332729"
-         style="font-size:4.23333311px;stroke-width:0.26458332px">Alice</tspan></text>
+         x="55.451"
+         y="18.153479"
+         style="font-size:12px;stroke-width:0.26458332px;">Alice</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer3"
+     class="box"
      inkscape:label="private"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <rect
-       style="fill:none;stroke:#000000;stroke-width:1.76388884;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4640"
-       width="39.742435"
-       height="12.225768"
+       width="200"
+       height="50"
        x="53.947517"
        y="68.107948" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer2"
+     class="box"
      inkscape:label="public"
      style="display:inline">
     <path
@@ -103,8 +108,8 @@
        sodipodi:nodetypes="cccccccc"
        inkscape:connector-curvature="0"
        id="path9137"
-       d="M 14.310583,98.747115 H 52.248251 V 110.22646 H 14.310583 v -2.86984 l 2.62275,-3.23786 -2.62275,-2.5018 z"
-       style="fill:none;stroke:#000000;stroke-width:1.74977779;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+       d="M 12.865658,129.17946 H 209.48158 v 47.65506 H 12.865658 V 164.92074 L 26.458334,151.47916 12.865658,141.09325 Z"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
       <title
          id="title9139">public box</title>
     </path>
