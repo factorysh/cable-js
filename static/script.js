@@ -11,6 +11,9 @@ class Cables {
     }
     newBox(name, type) {
         let b = this.boxes[type].clone()
+        b.node.style.display = 'inherit'
+        b.select(".name").node.textContent = name
+        b.drag()
         return b    
     }
 }
