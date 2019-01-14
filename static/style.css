@@ -15,7 +15,8 @@ body {
     stroke-linejoin:round;
     stroke-miterlimit:4;
     stroke-dasharray:none;
-    stroke-opacity:1
+    stroke-opacity:1;
+    pointer-events:all;
 }
 
 .outline:hover {
@@ -28,15 +29,6 @@ body {
 .outline:active {
     background-color: gray;
     cursor: grabbing;
-}
-
-#zone {
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 800px;
-    height: 400px;
 }
 
 #zone svg {
