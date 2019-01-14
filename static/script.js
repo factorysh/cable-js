@@ -25,7 +25,7 @@ cables.newBox("web", "public")
 cables.newBox("php", "private")
 cables.newBox("db", "private")
 
-
+/*
 function dragStart(e) {
     let self = boxes[this.id]
     console.log("drag start self", self)
@@ -172,7 +172,7 @@ var boxes = {}
 var dragged
 const delta = 40
 const pendouillage = 20
-
+*/
 /*
 document.querySelectorAll(".box").forEach(box => {
     console.log(box)

@@ -64,7 +64,7 @@
      class="box"
      style="display:inline">
     <path
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.32291663;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 38.437628,6.7357557 H 237.85788 V 19.05045 l 16.03064,10.735434 -16.03064,13.893948 v 12.31468 H 38.437628 V 43.679832 L 52.224176,29.785884 38.437628,19.05045 Z"
        id="rule"
        class="outline"
@@ -92,7 +92,7 @@
      inkscape:label="private"
      style="display:inline">
     <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.32291663;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;stroke:#000000;stroke-width:1.32291663;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect4640"
        class="outline"
        width="200"
@@ -125,7 +125,7 @@
        id="path9137"
        class="outline"
        d="M 12.865658,129.17946 H 209.48158 v 47.65506 H 12.865658 V 164.92074 L 26.458334,151.47916 12.865658,141.09325 Z"
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.32291663;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="stroke:#000000;stroke-width:1.32291663;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill:none"
        onmouseover="">
       <title
          id="title9139">public box</title>

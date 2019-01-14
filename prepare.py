@@ -2,6 +2,7 @@
 
 import re
 from lxml import etree, objectify
+from pyquery import PyQuery as pq
 
 
 p_xmlns = re.compile(r"xmlns\S+\s")
@@ -29,6 +30,11 @@ def main(path='dessin.svg'):
 
 
 def clean(element):
+    if 'class' in element.keys():
+        if 'outline' in element.attrib['class'].split(' '):
+            del element.attrib['style']
+    if 'onmouseover' in element.keys():
+        del element.attrib['onmouseover']
     for k in element.keys():
         if k.startswith('{'):
             del element.attrib[k]
