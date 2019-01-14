@@ -6,7 +6,7 @@ class Cables {
         this.snap.selectAll(".box").forEach(box => {
             this.boxes[box.node.id] = box
             box.node.style.display = "None"
-            console.log(box)
+            console.log("box", box)
         })
     }
     newBox(name, type) {
@@ -14,7 +14,8 @@ class Cables {
         b.node.style.display = 'inherit'
         b.select(".name").node.textContent = name
         b.drag()
-        return b    
+        console.log("new box", b)
+        return b
     }
 }
 
@@ -22,6 +23,7 @@ cables = new Cables("#zone svg")
 cables.newBox("/", "route")
 cables.newBox("web", "public")
 cables.newBox("php", "private")
+cables.newBox("db", "private")
 
 
 function dragStart(e) {
