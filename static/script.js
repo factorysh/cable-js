@@ -32,6 +32,16 @@ function drawPathsHorizontal(box1, box2) {
     circleEndHalo.setAttribute("cy", y2)
 }
 
+function cable_pos(element) {
+    let bbox = element.getBBox()
+    let y = (bbox.y + bbox.y2) / 2
+    return {
+        x: bbox.x,
+        x2: bbox.x2,
+        y: y
+    } 
+}
+
 class Cables {
     constructor(svg) {
         this.snap = Snap("#zone svg")
@@ -45,13 +55,19 @@ class Cables {
     newBox(name, type) {
         let b = this.boxes[type].clone()
         b.node.style.display = 'inherit'
+        b.node.id = name
         b.select(".name").node.textContent = name
         b.drag()
         console.log("new box", b)
         return b
     }
     cable(left, right) {
-        let path = this.snap.path("")
+        let box_l = this.snap.select(`#${left}`)
+        let box_r = this.snap.select(`#${right}`)
+        let c_l = cable_pos(box_l)
+        let c_r = cable_pos(box_r)
+        console.log('path', `M${c_l.x},${c_l.y} L${c_r.x2},${c_r.y}`)
+        let path = this.snap.path(`M${c_l.x},${c_l.y} L${c_r.x2},${c_r.y}`)
         path.attr({
             class: `l_${left} r_${right} cable` 
         })
@@ -59,9 +75,9 @@ class Cables {
 }
 
 cables = new Cables("#zone svg")
-cables.newBox("/", "route")
+cables.newBox("home", "route")
 cables.newBox("web", "public")
-cables.cable("/", "web")
+cables.cable("home", "web")
 cables.newBox("php", "private")
 cables.cable("web", "php")
 cables.newBox("db", "private")
