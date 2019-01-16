@@ -1,4 +1,18 @@
 
+function cable_path(x1, y1, x2, y2) { // draw a rope between two points
+    const ratio = 0.5
+    const pendouillage = 20
+    const delta = -40
+    const x3 = x1 + ((x2-x1) * ratio)
+    const y3 = Math.max(y1, y2)+pendouillage
+    let delta3 = Math.max(delta, Math.abs(y2-y1)/2)
+    if (x2 < x1) { delta3 = -delta3 }
+    return `M${x1} ${y1}
+    C ${x1+delta} ${y1} ${x3-delta3} ${y3} ${x3} ${y3}
+    C ${x3+delta3} ${y3} ${x2-delta} ${y2} ${x2} ${y2}
+    `.replace(/\s+/gm, " ")
+}
+
 function drawPathsHorizontal(box1, box2) {
     const path = document.getElementById("1_2")
     const path_back = document.getElementById("1_2_back")
@@ -32,7 +46,7 @@ function drawPathsHorizontal(box1, box2) {
     circleEndHalo.setAttribute("cy", y2)
 }
 
-function cable_pos(element) {
+function cable_pos(element) { // find cable plugs pos of a box
     let bbox = element.getBBox()
     let y = (bbox.y + bbox.y2) / 2
     return {
@@ -73,35 +87,25 @@ class Cables {
             class: `l_${left} r_${right} cable`,
             'stroke-width': 2,
             stroke: 'black',
+            fill: 'none'
         })
         function draw() {
             c_l = cable_pos(box_l)
             c_r = cable_pos(box_r)
-            let p = `M${c_r.x},${c_r.y}L${c_l.x2},${c_l.y}`
-            console.log('path', p)
+            //let p = `M${c_r.x},${c_r.y}L${c_l.x2},${c_l.y}`
+            const p = cable_path(c_r.x, c_r.y, c_l.x2, c_l.y)
             path.attr({
                 d: p
             })
         }
-        box_l.drag((x, y, event) => { // onmove
-            draw()
-        },
-        () => { // onstart
-        },
-        () => { // onend
+        [box_l, box_r].forEach(box => {
+            box.drag((x, y, event) => { // onmove
+                draw()
+            }, () => { }, // onstart
+            () => { }) // onend
         })
-        box_r.drag((x, y, event) => { // onmove
-            draw()
-        },
-        () => { // onstart
-        },
-        () => { // onend
-        })
-        draw()
+        draw() // initial draw
     }
-}
-function draw_cable(id) {
-
 }
 
 cables = new Cables("#zone svg")
