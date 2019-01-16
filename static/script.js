@@ -77,7 +77,7 @@ class Cables {
         function draw() {
             c_l = cable_pos(box_l)
             c_r = cable_pos(box_r)
-            let p = `M${c_l.x},${c_l.y}L${c_r.x2},${c_r.y}`
+            let p = `M${c_r.x},${c_r.y}L${c_l.x2},${c_l.y}`
             console.log('path', p)
             path.attr({
                 d: p
@@ -97,6 +97,7 @@ class Cables {
         },
         () => { // onend
         })
+        draw()
     }
 }
 function draw_cable(id) {
