@@ -13,39 +13,6 @@ function cable_path(x1, y1, x2, y2) { // draw a rope between two points
     `.replace(/\s+/gm, " ")
 }
 
-function drawPathsHorizontal(box1, box2) {
-    const path = document.getElementById("1_2")
-    const path_back = document.getElementById("1_2_back")
-    const x1 = box1.offsetWidth + box1.offsetLeft + boxes[box1.id].currentX
-    const y1 = (box1.offsetHeight/2) + boxes[box1.id].currentY + box1.offsetTop
-    const x2 = boxes[box2.id].currentX + box2.offsetLeft
-    const y2 = (box2.offsetHeight/2) + boxes[box2.id].currentY + box2.offsetTop
-
-    const ratio = 0.5
-    const x3 = x1 + ((x2-x1) * ratio)
-    const y3 = Math.max(y1, y2)+pendouillage
-    let delta3 = Math.max(delta, Math.abs(y2-y1)/2)
-    if (x2 < x1) { delta3 = -delta3 }
-    const d = `M${x1} ${y1}
-    C ${x1+delta} ${y1} ${x3-delta3} ${y3} ${x3} ${y3}
-    C ${x3+delta3} ${y3} ${x2-delta} ${y2} ${x2} ${y2}
-    `.replace(/\s+/gm, " ")
-    path.setAttribute("d", d)
-    path_back.setAttribute("d", d)
-    circleStart = document.getElementById("1_2_start")
-    circleStartHalo = document.getElementById("1_2_start_halo")
-    circleEnd = document.getElementById("1_2_end")
-    circleEndHalo = document.getElementById("1_2_end_halo")
-    circleStart.setAttribute("cx", x1)
-    circleStart.setAttribute("cy", y1)
-    circleStartHalo.setAttribute("cx", x1)
-    circleStartHalo.setAttribute("cy", y1)
-    circleEnd.setAttribute("cx", x2)
-    circleEnd.setAttribute("cy", y2)
-    circleEndHalo.setAttribute("cx", x2)
-    circleEndHalo.setAttribute("cy", y2)
-}
-
 function cable_pos(element) { // find cable plugs pos of a box
     let bbox = element.getBBox()
     let y = (bbox.y + bbox.y2) / 2
