@@ -68,8 +68,16 @@ class Cables {
         [box_l, box_r].forEach(box => {
             box.drag((x, y, event) => { // onmove
                 draw()
-            }, () => { }, // onstart
-            () => { }) // onend
+            }, () => {
+                path.attr({
+                    stroke: 'red'
+                })
+             }, // onstart
+            () => {
+                path.attr({
+                    stroke: 'black'
+                })
+            }) // onend
         })
         draw() // initial draw
     }
