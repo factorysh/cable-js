@@ -45,13 +45,14 @@ function cable_pos(element) {
 class Cables {
     constructor(svg) {
         this.snap = Snap("#zone svg")
-        this.boxes = {}
+        this.boxes = {} // layers found in the inkscape file
         this.snap.selectAll(".box").forEach(box => {
             this.boxes[box.node.id] = box
             box.node.style.display = "None"
             console.log("box", box)
         })
     }
+    // Add a new box, with a type
     newBox(name, type) {
         let b = this.boxes[type].clone()
         b.node.style.display = 'inherit'
@@ -61,17 +62,45 @@ class Cables {
         console.log("new box", b)
         return b
     }
+    // Link a cable, between two boxes
     cable(left, right) {
         let box_l = this.snap.select(`#${left}`)
         let box_r = this.snap.select(`#${right}`)
         let c_l = cable_pos(box_l)
         let c_r = cable_pos(box_r)
-        console.log('path', `M${c_l.x},${c_l.y} L${c_r.x2},${c_r.y}`)
-        let path = this.snap.path(`M${c_l.x},${c_l.y} L${c_r.x2},${c_r.y}`)
+        let path = this.snap.path()
         path.attr({
-            class: `l_${left} r_${right} cable` 
+            class: `l_${left} r_${right} cable`,
+            'stroke-width': 2,
+            stroke: 'black',
+        })
+        function draw() {
+            c_l = cable_pos(box_l)
+            c_r = cable_pos(box_r)
+            let p = `M${c_l.x},${c_l.y}L${c_r.x2},${c_r.y}`
+            console.log('path', p)
+            path.attr({
+                d: p
+            })
+        }
+        box_l.drag((x, y, event) => { // onmove
+            draw()
+        },
+        () => { // onstart
+        },
+        () => { // onend
+        })
+        box_r.drag((x, y, event) => { // onmove
+            draw()
+        },
+        () => { // onstart
+        },
+        () => { // onend
         })
     }
+}
+function draw_cable(id) {
+
 }
 
 cables = new Cables("#zone svg")
