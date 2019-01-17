@@ -66,7 +66,7 @@ class Cables {
                 d: p
             })
         }
-        [box_l, box_r].forEach(box => {
+        for (let box of [box_l, box_r]) {
             box.drag((x, y, event) => { // onmove
                 draw()
             }, () => { // onstart
@@ -79,7 +79,7 @@ class Cables {
                     stroke: 'black'
                 })
             })
-        })
+        }
         draw() // initial draw
     }
 }
