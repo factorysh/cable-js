@@ -1,0 +1,4 @@
+lxml
+pyquery
+jinja2
+flask
