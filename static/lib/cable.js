@@ -1,9 +1,10 @@
 
 // draw a rope between two points
 function cable_path(x1, y1, x2, y2) {
+    const length = Math.sqrt((x2-x1)**2 + (y2-y1)**2)
     const ratio = 0.5
-    const pendouillage = 20
-    const delta = -40
+    const pendouillage = Math.min(40, length) /5
+    const delta = - Math.min(40, length/8)
     const x3 = x1 + ((x2-x1) * ratio)
     const y3 = Math.max(y1, y2)+pendouillage
     let delta3 = Math.max(delta, Math.abs(y2-y1)/2)
