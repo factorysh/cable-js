@@ -14,3 +14,7 @@ cables.cable(php, db)
 
 const memcache = cables.newBox("memcache", "private")
 cables.cable(php, memcache)
+
+const upload = cables.newBox("upload", "volume")
+cables.cable(php, upload)
+cables.cable(web, upload)

@@ -34,10 +34,11 @@ export class Cables {
         this.boxes = {} // layers found in the inkscape file
         this.colums = {}
         this.snap.selectAll(".box").forEach(box => {
-            this.boxes[box.node.id] = box
+            const id = box.node.id
+            this.boxes[id] = box
             box.node.style.display = "None"
-            console.log("box", box)
-            this.colums[box.node.id] = 0
+            console.log("box", id, box)
+            this.colums[id] = 0
         })
     }
     // Add a new box, with a type
@@ -46,17 +47,24 @@ export class Cables {
         const column_height = 80
 
         const b = this.boxes[type].clone()
-        const rank = [ "route", "public", "private"].indexOf(type)
-        const line = this.colums[type]++
+        let dx
+        let dy
+        const bb = b.getBBox()
+        if(type == "volume") {
+
+        } else {
+            const rank = ["route", "public", "private"].indexOf(type)
+            const line = this.colums[type]++
+            dx = -bb.x + (rank * column_length) + 5
+            dy = -bb.y + (line * column_height)
+        }
         b.node.style.display = 'inherit'
         b.node.id = name
         b.select(".name").node.textContent = name
         b.drag()
 
-        const bb = b.getBBox()
         const matrix = new Snap.Matrix();
-        matrix.translate(-bb.x + (rank*column_length) + 5,
-            -bb.y + (line * column_height))
+        matrix.translate(dx, dy)
 
         b.transform(matrix.toTransformString())
         console.log("new box", b)
