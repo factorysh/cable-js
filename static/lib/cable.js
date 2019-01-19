@@ -2,9 +2,10 @@
 // draw a rope between two points
 function cable_path(x1, y1, x2, y2) {
     const length = Math.sqrt((x2-x1)**2 + (y2-y1)**2)
+    console.log("lenght", length)
     const ratio = 0.5
-    const pendouillage = Math.min(40, length) /5
-    const delta = - Math.min(40, length/8)
+    const pendouillage = Math.min(75, length/5)
+    const delta = - Math.min(50, length/8)
     const x3 = x1 + ((x2-x1) * ratio)
     const y3 = Math.max(y1, y2)+pendouillage
     let delta3 = Math.max(delta, Math.abs(y2-y1)/2)
@@ -42,7 +43,7 @@ export class Cables {
     // Add a new box, with a type
     newBox(name, type) {
         const column_length = 250
-        const column_height = 100
+        const column_height = 80
 
         const b = this.boxes[type].clone()
         const rank = [ "route", "public", "private"].indexOf(type)
