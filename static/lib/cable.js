@@ -30,28 +30,43 @@ export class Cables {
     constructor(svg) {
         this.snap = Snap("#zone svg")
         this.boxes = {} // layers found in the inkscape file
+        this.colums = {}
         this.snap.selectAll(".box").forEach(box => {
             this.boxes[box.node.id] = box
             box.node.style.display = "None"
             console.log("box", box)
+            this.colums[box.node.id] = 0
         })
     }
     // Add a new box, with a type
     newBox(name, type) {
+        const column_length = 250
+        const column_height = 100
+
         const b = this.boxes[type].clone()
+        const rank = [ "route", "public", "private"].indexOf(type)
+        const line = this.colums[type]++
         b.node.style.display = 'inherit'
         b.node.id = name
         b.select(".name").node.textContent = name
         b.drag()
+
+        const bb = b.getBBox()
+        const matrix = new Snap.Matrix();
+        matrix.translate(-bb.x + (rank*column_length) + 5,
+            -bb.y + (line * column_height))
+
+        b.transform(matrix.toTransformString())
         console.log("new box", b)
         return b
     }
     // Link a cable, between two boxes
     cable(left, right) {
-        let c_l = cable_pos(left)
-        let c_r = cable_pos(right)
         const cable_width = 2
         const line_width = 2
+
+        let c_l = cable_pos(left)
+        let c_r = cable_pos(right)
         const back_path = this.snap.path().attr({
             class: `l_${left.node.id} r_${right.node.id} back_cable`,
             'stroke-width': cable_width + 2*line_width,
