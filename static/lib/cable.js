@@ -50,17 +50,27 @@ export class Cables {
     cable(left, right) {
         let c_l = cable_pos(left)
         let c_r = cable_pos(right)
-        const path = this.snap.path()
-        path.attr({
-            class: `l_${left.node.id} r_${right.node.id} cable`,
-            'stroke-width': 2,
+        const cable_width = 2
+        const line_width = 2
+        const back_path = this.snap.path().attr({
+            class: `l_${left.node.id} r_${right.node.id} back_cable`,
+            'stroke-width': cable_width + 2*line_width,
             stroke: 'black',
+            fill: 'none'
+        })
+        const path = this.snap.path().attr({
+            class: `l_${left.node.id} r_${right.node.id} cable`,
+            'stroke-width': cable_width,
+            stroke: 'white',
             fill: 'none'
         })
         function draw() {
             c_l = cable_pos(left)
             c_r = cable_pos(right)
             const p = cable_path(c_r.x, c_r.y, c_l.x2, c_l.y)
+            back_path.attr({
+                d: p
+            })
             path.attr({
                 d: p
             })
@@ -75,7 +85,7 @@ export class Cables {
              },
             () => { // onend
                 path.attr({
-                    stroke: 'black'
+                    stroke: 'white'
                 })
             })
         }
