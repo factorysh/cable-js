@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Play|Roboto");
 
 body {
-    /*font-family: "Noto Serif","DejaVu Serif",serif;*/
-    font-family: "Open Sans","DejaVu Sans",sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .outline {
@@ -40,10 +39,8 @@ body {
     visibility: hidden;
 }
 
-#box1 {
-}
-
-#box2 {
+text {
+    font-family: 'Play', sans-serif;
 }
 
 #zone {

@@ -30,11 +30,20 @@ def main(path='dessin.svg'):
 
 
 def clean(element):
+    # .outline has no style
     if 'class' in element.keys():
         if 'outline' in element.attrib['class'].split(' '):
             del element.attrib['style']
+    # nobody has onmouseover
     if 'onmouseover' in element.keys():
         del element.attrib['onmouseover']
+    # text has less style
+    if element.tag == '{http://www.w3.org/2000/svg}text':
+        styles = dict(i.split(':', 1) for i in
+                      element.attrib['style'].split(';'))
+        del styles['font-family']
+        element.attrib['style'] = ";".join(":".join(i) for i in styles.items())
+        
     for k in element.keys():
         if k.startswith('{'):
             del element.attrib[k]
