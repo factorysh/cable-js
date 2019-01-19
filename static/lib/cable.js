@@ -69,6 +69,11 @@ export class Cables {
 
         let c_l = cable_pos(left)
         let c_r = cable_pos(right)
+        const plug_r = this.snap.circle(c_r.x, c_r.y, line_width).attr({
+            stroke: 'black',
+            fill: 'white',
+            'stroke-width': line_width
+        })
         const back_path = this.snap.path().attr({
             class: `l_${left.node.id} r_${right.node.id} back_cable`,
             'stroke-width': cable_width + 2*line_width,
@@ -91,6 +96,10 @@ export class Cables {
             path.attr({
                 d: p
             })
+            plug_r.attr({
+                cx: c_r.x,
+                cy: c_r.y
+            })
         }
         for (let box of [left, right]) {
             box.drag((x, y, event) => { // onmove
@@ -99,10 +108,16 @@ export class Cables {
                 path.attr({
                     stroke: 'red'
                 })
+                plug_r.attr({
+                    fill: 'red'
+                })
              },
             () => { // onend
                 path.attr({
                     stroke: 'white'
+                })
+                plug_r.attr({
+                    fill: 'white'
                 })
             })
         }
