@@ -76,27 +76,33 @@ export class Cables {
 
         let c_l = cable_pos(left)
         let c_r = cable_pos(right)
-        const stroke = 'silver'
+        const stroke = 'gray'
         const fill = 'white'
+        const opacity = 0.3
         const stroke_hover = 'black'
         const fill_hover = 'red'
+        const opacity_hover = 1
 
         const plug_r = this.snap.circle(c_r.x, c_r.y, line_width).attr({
             stroke: stroke,
             fill: fill,
-            'stroke-width': line_width
+            'stroke-width': line_width,
+            'fill-opacity': opacity,
+            'stroke-opacity': opacity,
         })
         const back_path = this.snap.path().attr({
             class: `l_${left.node.id} r_${right.node.id} back_cable`,
             'stroke-width': cable_width + 2*line_width,
             stroke: stroke,
-            fill: 'none'
+            fill: 'none',
+            'stroke-opacity': opacity,
         })
         const path = this.snap.path().attr({
             class: `l_${left.node.id} r_${right.node.id} cable`,
             'stroke-width': cable_width,
             stroke: fill,
-            fill: 'none'
+            fill: 'none',
+            'stroke-opacity': opacity,
         })
         function draw() {
             c_l = cable_pos(left)
@@ -118,26 +124,34 @@ export class Cables {
                 draw()
             }, () => { // onstart
                 path.attr({
-                    stroke: fill_hover
+                    stroke: fill_hover,
+                    'stroke-opacity': opacity_hover
                 })
                 back_path.attr({
-                    stroke: stroke_hover
+                    stroke: stroke_hover,
+                    'stroke-opacity': opacity_hover
                 })
                 plug_r.attr({
                     fill: fill_hover,
-                    stroke: stroke_hover
+                    stroke: stroke_hover,
+                    'stroke-opacity': opacity_hover,
+                    'fill-opacity': opacity_hover
                 })
              },
             () => { // onend
                 path.attr({
-                    stroke: fill
+                    stroke: fill,
+                    'stroke-opacity': opacity
                 })
                 back_path.attr({
-                    stroke: stroke
+                    stroke: stroke,
+                    'stroke-opacity': opacity
                 })
                 plug_r.attr({
                     fill: fill,
-                    stroke: stroke
+                    stroke: stroke,
+                    'stroke-opacity': opacity,
+                    'file-opacity': opacity
                 })
             })
         }
