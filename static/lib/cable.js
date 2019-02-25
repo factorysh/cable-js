@@ -29,7 +29,7 @@ function cable_pos(element) {
 // Room full of boxes and cables
 export class Cables {
     constructor(svg) {
-        this.snap = Snap("#zone svg")
+        this.snap = Snap(svg)
         this.boxes = {} // layers found in the inkscape file
         this.colums = {}
         this.snap.selectAll(".box").forEach(box => {
